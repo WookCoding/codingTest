@@ -55,16 +55,17 @@ public class CodingTest6 {
 		int nTest1 = 3;
 		int nTest2 = 5;
 		int nTest3 = 2;
-		
-		String[] wordsTest1 =  {"tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"};
-		String[] wordsTest2 = {"hello", "observe", "effect", "take", "either", "recognize", "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"};
-		String[] wordsTest3 = {"hello", "one", "even", "never", "now", "world", "draw"};
+
+		String[] wordsTest1 = { "tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank" };
+		String[] wordsTest2 = { "hello", "observe", "effect", "take", "either", "recognize", "encourage", "ensure",
+				"establish", "hang", "gather", "refer", "reference", "estimate", "executive" };
+		String[] wordsTest3 = { "hello", "one", "even", "never", "now", "world", "draw" };
 
 		CodingTest6 solution = new CodingTest6();
 //		실행 구간
-		
+
 		int[] answer = solution.solution(nTest1, wordsTest1);
-		System.out.println("[" + answer[0]+" " + answer[1] + "]");
+		System.out.println("[" + answer[0] + " " + answer[1] + "]");
 	}
 
 	public int[] solution(int n, String[] words) {
@@ -73,29 +74,34 @@ public class CodingTest6 {
 		int count = 1;
 		boolean check = true;
 		ArrayList<String> arData = new ArrayList<String>();
-		
+
 		for (int i = 0; i < words.length; i++) {
 			number = (i + 1) % n == 0 ? n : (i + 1) % n;
 
-			
-			if(arData.size() != 0) {
-				if(arData.get(arData.size() -1).charAt(arData.get(arData.size() -1 ).length() - 1) != words[i].charAt(0)) {
+			if (arData.size() != 0) {
+				if (arData.get(arData.size() - 1).charAt(arData.get(arData.size() - 1).length() - 1) != words[i]
+						.charAt(0)) {
 					check = false;
 					break;
 				}
 			}
-			
-			if(arData.contains(words[i])) {
+
+			if (arData.contains(words[i])) {
 				check = false;
 				break;
-			}else {
+			} else {
 				arData.add(words[i]);
 				count++;
 			}
-			
+
 		}
-        answer[0] = number;
-        answer[1] = count % n != 0 ? count / n + 1 : count / n;
+		answer[0] = number;
+		answer[1] = count % n != 0 ? count / n + 1 : count / n;
+
+		if (check) {
+			answer[0] = 0;
+			answer[1] = 0;
+		}
 		return answer;
 	}
 }
