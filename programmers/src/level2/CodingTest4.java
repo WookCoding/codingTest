@@ -1,4 +1,4 @@
-package codingTest;
+package level2;
 
 public class CodingTest4 {
 	public static void main(String[] args) {
