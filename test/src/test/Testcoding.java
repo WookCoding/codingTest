@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Stack;
-7
 public class Testcoding {
 	public static void main(String[] args) {
 		String s = " kiwi papaya melon ";
