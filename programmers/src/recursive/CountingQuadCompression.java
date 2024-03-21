@@ -58,8 +58,19 @@ public class CountingQuadCompression {
 	
 //	구현
 	private int[] solution(int[][] arr) {
-		Count count = count(0, 0, arr.length, arr); 
+//		상태 : (offsetX, offsetY, size);
 		
+//		zeros = 0 : 갯수
+//		ones = 1 : 갯수
+//		종료 조건 : {0 : 1, 1: 0} - 모든 원소가 0일때
+//				 {0 : 0 , 1: 1 } - 모든 원소가 1일때
+		
+//		점화식 : (offsetX , offsetY, size) = (offsetX, offsetY, size/2)
+//											+ (offsetX, offsetY + size/2, size/2)
+//											+ (offsetX + size/2, offsetY, size/2)
+//											+ (offsetX + size/2, offsetY + size/2, size/2)
+		
+		Count count = count(0, 0, arr.length, arr); 
 		return new int[] {count.zeros, count.ones};
 	}	
 	
